@@ -120,19 +120,19 @@ export default function Hero() {
 
 
             <a
-              href="/RESUME.pdf"
-              target="_blank"
-              className="
-                px-7
-                py-3
-                rounded-full
-                border
-                hover:bg-gray-100
-                transition
-              "
-            >
-              Resume
-            </a>
+  href="/RESUME.pdf"
+  download
+  className="
+    px-7
+    py-3
+    rounded-full
+    border
+    hover:bg-gray-100
+    transition
+  "
+>
+  Download Resume
+</a>
 
           </div>
 
