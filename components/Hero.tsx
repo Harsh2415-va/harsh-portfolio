@@ -55,7 +55,7 @@ export default function Hero() {
 
 
             <a
-              href="/resume.pdf"
+              href="/RESUME.pdf"
               className="
               px-7 py-3
               rounded-full
