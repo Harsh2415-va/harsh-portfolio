@@ -4,22 +4,25 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Cloud Security Detection & Response Platform",
-    tech: "AWS • GuardDuty • IAM • EC2 • S3 • Elastic Stack",
+    title: "College ERP System",
+    duration: "Feb 2025 - Apr 2025",
+    tech: "HTML • SQL",
     description:
-      "Built a cloud security monitoring environment to detect and investigate threats in AWS infrastructure.",
+      "Developed a web-based ERP platform for managing student and academic records. Integrated SQL database functionality for efficient storage and retrieval of information.",
   },
   {
-    title: "Personal AI Memory OS",
-    tech: "AI • Cloud • Search • Databases",
+    title: "Travel Booking Application",
+    duration: "Mar 2026 - Apr 2026",
+    tech: "Android Development",
     description:
-      "An intelligent memory system that stores, organizes and retrieves personal knowledge using AI.",
+      "Developed an Android application for travel booking and itinerary management. Designed user-friendly workflows and booking functionality.",
   },
   {
-    title: "Data Science Analytics Dashboard",
-    tech: "Python • Pandas • Machine Learning",
+    title: "AI Chatbot",
+    duration: "Jan 2026 - Feb 2026",
+    tech: "Python • AI Concepts",
     description:
-      "Interactive dashboard for analyzing datasets and generating actionable insights.",
+      "Built an AI-powered chatbot capable of responding to user queries and providing assistance. Focused on conversational design and user experience improvements.",
   },
 ];
 
@@ -27,38 +30,58 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="mx-auto max-w-7xl px-6 py-40"
+      className="px-6 py-32 max-w-6xl mx-auto"
     >
-      <h2 className="mb-20 text-center text-5xl font-bold">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-5xl font-bold text-center"
+      >
         Featured Projects
-      </h2>
+      </motion.h2>
 
-      <div className="space-y-10">
+      <p className="text-center text-gray-500 mt-4">
+        Some projects I've built while exploring technology.
+      </p>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.2 }}
-            whileHover={{ scale: 1.02 }}
-            className="rounded-[40px] bg-gradient-to-br from-gray-50 to-gray-100 p-12 shadow-sm"
+            transition={{ delay: index * 0.15 }}
+            className="rounded-3xl border p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
           >
-            <p className="text-sm font-medium text-blue-600">
-              {project.tech}
-            </p>
-
-            <h3 className="mt-4 text-4xl font-bold">
+            <h3 className="text-2xl font-semibold">
               {project.title}
             </h3>
 
-            <p className="mt-6 max-w-3xl text-lg text-gray-600">
+            <p className="text-sm text-blue-600 mt-3">
+              {project.tech}
+            </p>
+
+            <p className="mt-4 text-gray-600 leading-relaxed">
               {project.description}
             </p>
 
-            <button className="mt-8 rounded-full bg-black px-6 py-3 text-white">
-              View Project →
-            </button>
+            <div className="flex gap-4 mt-8">
+              <a
+                href="#"
+                className="px-5 py-2 rounded-full bg-black text-white"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="#"
+                className="px-5 py-2 rounded-full border"
+              >
+                Details
+              </a>
+            </div>
           </motion.div>
         ))}
       </div>

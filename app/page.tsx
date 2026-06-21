@@ -1,220 +1,302 @@
+"use client";
+
+import { useState } from "react";
+import Hero from "@/components/Hero";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import Timeline from "@/components/Timeline";
+import Contact from "@/components/Contact";
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <main className="bg-white text-black">
+    <main className="bg-gradient-to-b from-white via-gray-50 to-white text-black">
       {/* Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50">
-        <nav className="mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-full border border-gray-200 bg-white/80 px-8 py-4 backdrop-blur-md">
-          <h1 className="font-semibold">Harsh Vaishya</h1>
+        <nav
+          className="
+            mx-auto
+            mt-5
+            flex
+            max-w-6xl
+            items-center
+            justify-between
+            rounded-full
+            border
+            border-white/30
+            bg-white/70
+            px-8
+            py-4
+            shadow-lg
+            backdrop-blur-xl
+          "
+        >
+          {/* Logo */}
+          <a
+            href="#home"
+            className="text-xl font-bold tracking-tight"
+          >
+            HV
+          </a>
 
-          <ul className="hidden gap-8 text-sm md:flex">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+          {/* Navigation Links */}
+          <div
+            className="
+              hidden
+              items-center
+              gap-8
+              text-sm
+              font-medium
+              text-gray-600
+              md:flex
+            "
+          >
+            <a
+              href="#home"
+              className="transition hover:text-black"
+            >
+              Home
+              
+              <div className="mx-auto max-w-6xl border-t border-gray-200" />
+            </a>
 
-      {/* Hero */}
-      <section className="flex min-h-screen items-center justify-center px-6 text-center">
-        <div>
-          <h1 className="text-5xl font-bold tracking-tight md:text-8xl">
-            Harsh Vaishya
-          </h1>
+            <a
+              href="#about"
+              className="transition hover:text-black"
+            >
+              About
+              <div className="mx-auto max-w-6xl border-t border-gray-200" />
+            </a>
 
-          <p className="mt-6 text-2xl text-gray-600">
-            Aspiring Software Engineer
-          </p>
+            <a
+              href="#skills"
+              className="transition hover:text-black"
+            >
+              Skills
+              <div className="mx-auto max-w-6xl border-t border-gray-200" />
+            </a>
 
-          <p className="mt-2 text-lg text-gray-500">
-            Data Science • AI/ML • Cloud Computing
-          </p>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
               href="#projects"
-              className="rounded-full bg-black px-8 py-4 text-white"
+              className="transition hover:text-black"
             >
-              View Projects
+              Projects
+              <div className="mx-auto max-w-6xl border-t border-gray-200" />
             </a>
-
+            <a href="#timeline" className="hover:text-black transition">
+  Journey
+  <div className="mx-auto max-w-6xl border-t border-gray-200" />
+</a>
             <a
-              href="https://github.com/Harsh2415-va"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border px-8 py-4"
+              href="#contact"
+              className="transition hover:text-black"
             >
-              GitHub
+              Contact
+              <div className="mx-auto max-w-6xl border-t border-gray-200" />
             </a>
+          </div>
 
+          {/* Social Buttons */}
+         <button
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="
+    text-2xl
+    md:hidden
+    transition
+    duration-300
+  "
+>
+  {menuOpen ? "✕" : "☰"}
+</button>
+
+          <div className="hidden items-center gap-3 md:flex">
             <a
               href="https://www.linkedin.com/in/harsh-vaishya-615a7427a"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border px-8 py-4"
+              className="
+                rounded-full
+                bg-blue-600
+                px-4
+                py-2
+                text-sm
+                text-white
+                transition
+                hover:scale-105
+              "
             >
               LinkedIn
             </a>
+            <a
+  href="/resume.pdf"
+  download
+  className="
+    rounded-full
+    bg-black
+    px-4
+    py-2
+    text-sm
+    text-white
+    transition
+    hover:scale-105
+  "
+>
+  Resume
+</a>
+            <a
+              href="https://github.com/Harsh2415-va"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                rounded-full
+                border
+                px-4
+                py-2
+                text-sm
+                transition
+                hover:bg-gray-100
+              "
+            >
+              GitHub
+            </a>
           </div>
-        </div>
-      </section>
+        </nav>
+        {menuOpen && (
+  <div
+    className="
+      md:hidden
+      mx-auto
+      mt-3
+      max-w-6xl
+      rounded-3xl
+      bg-white
+      shadow-lg
+      p-6
+    "
+  >
+    <div className="flex flex-col gap-4">
 
-      {/* About */}
-      <section id="about" className="mx-auto max-w-6xl px-6 py-32">
-        <p className="uppercase tracking-widest text-gray-400">
-          About Me
-        </p>
+      <a href="#home" onClick={() => setMenuOpen(false)}>
+        Home
+      </a>
 
-        <h2 className="mt-8 text-4xl font-bold leading-tight md:text-6xl">
-          Passionate about building intelligent solutions through Data Science,
-          AI/ML, Cloud Computing and Software Development.
-        </h2>
+      <a href="#about" onClick={() => setMenuOpen(false)}>
+        About
+      </a>
 
-        <p className="mt-8 max-w-4xl text-lg text-gray-600">
-          Computer Engineering student at Indus University with strong
-          foundations in Python, C++, SQL, DSA and DBMS. Interested in AI,
-          Cloud Computing, Software Engineering and Data Science.
-        </p>
-      </section>
+      <a href="#skills" onClick={() => setMenuOpen(false)}>
+        Skills
+      </a>
 
-      {/* Skills */}
-      <section id="skills" className="mx-auto max-w-7xl px-6 py-32">
-        <h2 className="mb-16 text-center text-5xl font-bold">
-          Skills
-        </h2>
+      <a href="#projects" onClick={() => setMenuOpen(false)}>
+        Projects
+      </a>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-3xl bg-gray-100 p-10">
-            <h3 className="text-3xl font-semibold">Programming</h3>
-            <p className="mt-4 text-gray-600">
-              Python, C, C++, SQL
-            </p>
-          </div>
+      <a href="#timeline" onClick={() => setMenuOpen(false)}>
+        Journey
+      </a>
 
-          <div className="rounded-3xl bg-gray-100 p-10">
-            <h3 className="text-3xl font-semibold">Data Science & AI</h3>
-            <p className="mt-4 text-gray-600">
-              Machine Learning, Data Analysis, Data Visualization
-            </p>
-          </div>
+      <a href="#contact" onClick={() => setMenuOpen(false)}>
+        Contact
+      </a>
 
-          <div className="rounded-3xl bg-gray-100 p-10">
-            <h3 className="text-3xl font-semibold">Development</h3>
-            <p className="mt-4 text-gray-600">
-              HTML, CSS, Next.js, React, Android Development
-            </p>
-          </div>
-
-          <div className="rounded-3xl bg-gray-100 p-10">
-            <h3 className="text-3xl font-semibold">Core Concepts</h3>
-            <p className="mt-4 text-gray-600">
-              DSA, DBMS, Problem Solving
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section id="projects" className="mx-auto max-w-7xl px-6 py-32">
-        <h2 className="mb-16 text-center text-5xl font-bold">
-          Featured Projects
-        </h2>
-
-        <div className="space-y-8">
-          <div className="rounded-[40px] bg-gray-100 p-12">
-            <p className="text-blue-600">HTML • SQL</p>
-
-            <h3 className="mt-4 text-4xl font-bold">
-              College ERP System
-            </h3>
-
-            <p className="mt-6 text-gray-600">
-              Developed a web-based ERP platform for managing student and
-              academic records.
-            </p>
-          </div>
-
-          <div className="rounded-[40px] bg-gray-100 p-12">
-            <p className="text-blue-600">Android Development</p>
-
-            <h3 className="mt-4 text-4xl font-bold">
-              Travel Booking Application
-            </h3>
-
-            <p className="mt-6 text-gray-600">
-              Android application for travel booking and itinerary management.
-            </p>
-          </div>
-
-          <div className="rounded-[40px] bg-gray-100 p-12">
-            <p className="text-blue-600">Python • AI</p>
-
-            <h3 className="mt-4 text-4xl font-bold">
-              AI Chatbot
-            </h3>
-
-            <p className="mt-6 text-gray-600">
-              AI-powered chatbot capable of responding to user queries.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="mx-auto max-w-6xl px-6 py-32">
-        <h2 className="mb-10 text-5xl font-bold">
-          Certifications
-        </h2>
-
-        <div className="rounded-3xl bg-gray-100 p-10">
-          <h3 className="text-2xl font-semibold">
-            Data Science Certification – Acmegrade
-          </h3>
-
-          <p className="mt-4 text-gray-600">
-            Python, Data Analysis, Data Visualization, Statistics and Machine
-            Learning Fundamentals.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section
-        id="contact"
-        className="mx-auto max-w-5xl px-6 py-32 text-center"
+      <a
+        href="/resume.pdf"
+        download
+        className="font-semibold"
       >
-        <h2 className="text-5xl font-bold">
-          Let's Build Something Amazing
+        Resume
+      </a>
+    </div>
+  </div>
+)}
+      </header>
+
+      {/* Hero Section */}
+      <div id="home">
+        <Hero />
+      </div>
+
+      {/* About Section */}
+      <section
+        id="about"
+        className="
+          mx-auto
+          max-w-5xl
+          px-6
+          py-40
+        "
+      >
+        <h2 className="text-5xl font-bold tracking-tight">
+          About Me
         </h2>
 
-        <p className="mt-8 text-xl text-gray-600">
-          harshvaishya2005@gmail.com
-        </p>
+        <p className="mt-8 text-lg leading-relaxed text-gray-600">
+  I'm Harsh Vaishya, a Computer Engineering undergraduate at
+  Indus University with a strong interest in Software Development,
+  Data Science, Artificial Intelligence, and Cloud Technologies.
 
-        <div className="mt-8 flex justify-center gap-4">
-          <a
-            href="https://github.com/Harsh2415-va"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border px-6 py-3"
-          >
-            GitHub
-          </a>
+  <br />
+  <br />
 
-          <a
-            href="https://www.linkedin.com/in/harsh-vaishya-615a7427a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border px-6 py-3"
-          >
-            LinkedIn
-          </a>
-        </div>
+  I enjoy building practical applications, solving complex
+  problems, and continuously learning modern technologies.
+  My goal is to leverage technology to create impactful
+  solutions and grow as a software engineer.
+</p>
       </section>
 
-      <footer className="border-t py-8 text-center text-gray-500">
-        © 2026 Harsh Vaishya. All rights reserved.
-      </footer>
+      {/* Skills Section */}
+      <Skills />
+
+      {/* Projects Section */}
+      <Projects />
+      <Timeline />
+      {/* Contact Section */}
+      <Contact />
+
+      {/* Footer */}
+      {/* Footer */}
+<footer className="border-t py-10">
+  <div
+    className="
+      mx-auto
+      max-w-6xl
+      px-6
+      flex
+      flex-col
+      md:flex-row
+      items-center
+      justify-between
+      gap-4
+    "
+  >
+    <p className="text-gray-500">
+      © {new Date().getFullYear()} Harsh Vaishya
+    </p>
+
+    <div className="flex gap-6">
+      <a
+        href="https://github.com/Harsh2415-va"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-500 hover:text-black transition"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/harsh-vaishya-615a7427a"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-500 hover:text-black transition"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+</footer>
     </main>
   );
 }
