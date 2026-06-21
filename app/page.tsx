@@ -201,12 +201,22 @@ export default function Home() {
       </a>
 
       <a
-        href="/resume.pdf"
-        download
-        className="font-semibold"
-      >
-        Resume
-      </a>
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    rounded-full
+    bg-black
+    px-4
+    py-2
+    text-sm
+    text-white
+    transition
+    hover:scale-105
+  "
+>
+  View Resume
+</a>
     </div>
   </div>
 )}
