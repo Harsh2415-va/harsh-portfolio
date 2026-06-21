@@ -89,7 +89,7 @@ export default function Home() {
           {/* Desktop Buttons */}
           <div className="hidden items-center gap-3 md:flex">
             <a
-              href="/RESUME.pdf"
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -183,7 +183,7 @@ export default function Home() {
               </a>
 
               <a
-                href="/RESUME.pdf"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold"
